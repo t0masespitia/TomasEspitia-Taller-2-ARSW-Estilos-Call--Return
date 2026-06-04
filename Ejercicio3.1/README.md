@@ -59,3 +59,11 @@ Esta dirección fue elegida porque contiene diferentes partes importantes de una
 
 ## Imagen de la salida
 
+![alt text](../Imagenes/3.1.png)
+
+---
+
+### Conclusión
+
+Con este ejercicio se pudo comprender cómo Java permite trabajar con direcciones web mediante la clase URL.
+El programa permite separar una dirección en sus diferentes componentes, lo cual es útil para entender cómo están formadas las URLs y cómo se pueden manipular desde una aplicación Java.
