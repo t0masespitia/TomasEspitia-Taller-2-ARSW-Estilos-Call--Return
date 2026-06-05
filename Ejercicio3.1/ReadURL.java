@@ -1,10 +1,11 @@
 import java.net.MalformedURLException;
+import java.net.URI;
 import java.net.URL;
 
 public class ReadURL {
     public static void main(String[] args) {
         try {
-            URL url = new URL("http://ARSW.edu.co:80/index.html?curso=arsw#seccion2");
+            URL url = URI.create("http://ARSW.edu.co:80/index.html?curso=arsw#seccion2").toURL();
 
             System.out.println("URL completa  : " + url.toString());
             System.out.println("getProtocol() : " + url.getProtocol());
