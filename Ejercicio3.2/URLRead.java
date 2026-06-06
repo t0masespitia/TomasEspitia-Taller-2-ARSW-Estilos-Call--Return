@@ -23,12 +23,11 @@ public class URLRead {
             }
 
             URL page = URI.create(urlText).toURL();
-            Path tempFile = Files.createTempFile(Path.of("."), "pagina-", ".html");
-            tempFile.toFile().deleteOnExit();
+            Path outputFile = Path.of("resultado.html");
 
             try (BufferedReader reader =
                          new BufferedReader(new InputStreamReader(page.openStream(), StandardCharsets.UTF_8));
-                 Writer writer = Files.newBufferedWriter(tempFile, StandardCharsets.UTF_8)) {
+                 Writer writer = Files.newBufferedWriter(outputFile, StandardCharsets.UTF_8)) {
 
                 String inputLine;
 
@@ -38,11 +37,9 @@ public class URLRead {
                 }
 
                 writer.flush();
-                System.out.println("Archivo temporal creado en: " + tempFile.toAbsolutePath());
-                System.out.println("Presiona Enter para cerrar y eliminar el archivo.");
-                consoleReader.readLine();
+                System.out.println("Archivo generado en: " + outputFile.toAbsolutePath());
             }
-        } catch (MalformedURLException e) {
+        } catch (MalformedURLException | IllegalArgumentException e) {
             System.err.println("URL malformada: " + e.getMessage());
         } catch (IOException e) {
             System.err.println("No se pudo leer la pagina o escribir el archivo: " + e.getMessage());
